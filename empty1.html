@@ -82,9 +82,9 @@
      }
     },
     methods: {
-     errorHide1() {      this.showError1 = false     },
-     errorHide2() {      this.showError2 = false     },
-     errorHide3() {      this.showError3 = false     },
+     errorHide1() {      this.showError1 = this.email.trim()==="";     },
+     errorHide2() {      this.showError2 = this.phone.trim()==="";     },
+     errorHide3() {      this.showError3 = false;     },
     }
    };
 
