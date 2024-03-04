@@ -23,9 +23,11 @@
  <div id="app">
   수량 <input type="text" v-model="수량"> <br>
   가격 <input type="text" v-model="가격"> <br>
-  합계1 <input type="text" v-model="total" v-bind:class="{'red-text':total>=10000}"><br>
+  합계1 <input type="text" v-model="total" 
+  v-bind:class="{'red-text':total>=10000}"><br>
 
-  합계2 <input type="text" v-model="total" v-bind:style="{color:total>=5000?'blue':'gray'}">
+  합계2 <input type="text" v-model="total" 
+  v-bind:style="{color:total>=5000 ? 'blue':'gray'}">
   <hr>
   <h2>성명</h2>
   성 <input type="text" v-model="성"> <br>
@@ -44,12 +46,8 @@
  let app = {
   data() {
    return {
-    수량: 0,
-    가격: 0,
-    성: "",
-    이름: "",
-    from: 0,
-    to: 0
+    수량: 0,    가격: 0,    성: "",
+    이름: "",    from: 0,    to: 0
    }
   },
   methods: {
