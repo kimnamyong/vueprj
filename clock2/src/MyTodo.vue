@@ -5,7 +5,7 @@
       <tr>
         <td>ID</td>
         <td>할일</td>
-        <td>등록일</td>
+        <td>기한</td>
       </tr>
       <tr
         v-for="(todo, index) in todos"
@@ -18,7 +18,8 @@
           {{ todo.title }}
           <span v-on:click="deleteTodo(index)">x</span>
         </td>
-        <td>{{todo.date}}</td>
+        <!-- <td>{{todo.date}}</td> -->
+        <td>{{ formatDate(todo.date) }}</td>
       </tr>
     </table>
     <input type="text" v-model="title" />
@@ -26,31 +27,38 @@
     <button type="button" v-on:click="addTodo">추가</button>
   </div>
 </template>
-
-
 <script>
 export default {
-  name: "MyTodo",  
+  name: "MyTodo",
   data() {
     return {
       todos: [
-        { id: 1, title: "과제" , date:'2023-10-27'},
-        { id: 2, title: "시험공부",date:'2023-10-27' },
-        { id: 3, title: "코딩훈련",date:'2023-10-27' },
+        { id: 1, title: "과제", date: "2023-10-27" },
+        { id: 2, title: "시험공부", date: "2023-10-27" },
+        { id: 3, title: "코딩훈련", date: "2023-10-27" },
       ],
-      title: "",
-      lastId: 3,  
-      date:""
+      title: "",       lastId: 3,      date: "",
     };
   },
   methods: {
     addTodo: function () {
-      this.todos.push({ id: ++this.lastId, title: this.title , date:this.date});
-      this.title = "";
-      this.date="";
+      this.todos.push({
+        id: ++this.lastId,      title: this.title,     date: this.date,
+      });
+      this.title = "";       this.date = "";
     },
     deleteTodo(index) {
       if (confirm("삭제하시겠습니까?")) this.todos.splice(index, 1);
+    },
+    formatDate(date) {
+      let date1 = new Date(date);     
+      return date1.toLocaleDateString("ko-kr", {
+        weekday: "short",        
+        year: "numeric",     
+        month: "short",
+        day: "numeric",
+        // hour: "numeric",        // minute: "numeric",     // second: "numeric",
+      });
     },
   },
 };
