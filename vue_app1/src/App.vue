@@ -1,26 +1,23 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="안녕하세요 반갑습니다. Vue세상"/>
+  <div id="app">
+    <h1> MyCounter1</h1>
+    <MyCounter1 title="카운터1" description="첫번째 컴포넌트" />
+    <MyCounter1 title="카운터2" description="두번째 컴포넌트" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import MyCounter1 from "./MyCounter1.vue"
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  components: {    MyCounter1  },
+};
 </script>
 
-<style>
+<style scoped>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+border:1px solid;
+text-align: center;
+padding: 30px;
 }
 </style>
