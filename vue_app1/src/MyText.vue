@@ -12,8 +12,7 @@
 </template>
 <script>
 export default {
-    name:"MyText",
-    
+    name:"MyText",    
     data(){
         return { value:""}
     },
