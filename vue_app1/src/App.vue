@@ -1,23 +1,36 @@
 <template>
   <div id="app">
-    <h1> MyCounter1</h1>
-    <MyCounter1 title="카운터1" description="첫번째 컴포넌트" />
-    <MyCounter1 title="카운터2" description="두번째 컴포넌트" />
+    <h1>MyText</h1>
+    <MyText   
+      v-on:text="showText"
+    />
+    {{text}}
   </div>
 </template>
 
 <script>
-import MyCounter1 from "./MyCounter1.vue"
+import MyText from "./MyText.vue";
 export default {
   name: "App",
-  components: {    MyCounter1  },
+ data(){
+    return{
+      text :""
+    }
+  },
+  methods: {
+    showText(value){
+      this.text=value;
+    }
+  },
+ 
+  components: { MyText },
 };
 </script>
 
 <style scoped>
 #app {
-border:1px solid;
-text-align: center;
-padding: 30px;
+  border: 1px solid;
+  text-align: center;
+  padding: 30px;
 }
 </style>

@@ -1,6 +1,7 @@
 <template lang="">
     <div>
-      <h2>{{ title }} - <small>{{ description }}</small></h2>
+      <h2>{{ title }}{{value}} - {{enabled}}
+         - <small>{{ description }}</small></h2>
     <input type="number" v-model="counter" />
     <button type="button" @click="counter++"> ++ </button>
     <button type="button" @click="counter--"> -- </button>
@@ -10,7 +11,13 @@
 <script>
 export default {
     name:"MyCounter1",
-    props:["title","description"],
+    // props:["title","description"],
+    props:{
+        title:{ type:String, required:true},
+        description:{ type:String, default:"안녕하세요"},
+        value:Number,
+        enabled:Boolean,
+    },
     data(){
         return {counter:0}
     }
