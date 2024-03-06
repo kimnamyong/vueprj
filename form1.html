@@ -1,56 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Document</title>
- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
-</head>
-
-<body>
- <div id="app">
-  <h1>입력양식</h1>
-  <p>
-   <input type="text" placeholder="이름을 입력하세요" v-model="name">
-  </p>
-  <p>
-   <label>남자 
-    <input type="radio"  v-model="gender" value="male" >
-   </label>
-   <label>여자 
-    <input type="radio"  v-model="gender" value="female"></label>
-  </p>
-  <p>
-   <select v-model="전공">
-    <option>전자공학</option>
-    <option value="소프">소프트웨어공학</option>
-    <option>건축공학</option>
-    <option>토목공학</option>
-   </select>
-  </p>
-  <p><label><input type="checkbox" v-model="value">활성화</label></p>
-  <hr>
-  <p>{{name}}</p>
-  <p>성별 : {{gender}}</p>
-  <p>전공 : {{전공}}</p>
-  <p>활성화 : {{value}}</p>
- </div>
- <script type="text/javascript">
-  let app = {
-   data() {
-    return {
-     name: '',
-     gender: 'female',
-     전공:"전자공학",
-     value:false
-    };
-   }
-  };
-  Vue.createApp(app).mount("#app");
- </script>
-
-</body>
-
-</html>
+<template lang="">
+    <div>
+        
+    </div>
+</template>
+<script>
+export default {
+    
+}
+</script>
+<style lang="">
+    
+</style>

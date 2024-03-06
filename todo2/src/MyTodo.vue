@@ -40,11 +40,10 @@ axios.defaults.baseURL = "http://localhost:3000";
 
 export default {
   name: "MyTodo",
+ 
   data() {
     return {
-      id:3,
-      todos: [ ],
-      date:""
+      id:0,      todos: [ ],      date:"", title:""
     }
   },
   mounted() { // 컴포넌트가 처음 화면에 보이게 될 때, 자동으로 호출되는 메소드
@@ -54,6 +53,7 @@ export default {
     async reloadTodos() { // 백엔드 API를 호출하여 데이터를 로드한다
       try {
         const response = await axios.get("/todos");
+        console.log(response)
         this.todos = response.data;
       } catch (error) {
         alert('조회 에러: ' + (error instanceof Error ? error.message : error));
@@ -71,8 +71,9 @@ export default {
     },
     async deleteTodo(id) {
       try {
-        if (confirm("삭제하시겠습니까?") == false) return;
-        await axios.delete("/todos/" + id);
+       // if (confirm("삭제하시겠습니까?") == false) return;
+       console.log(typeof id)
+        await axios.delete("/todos/"+id);
         this.reloadTodos();
       } catch (error) {
         alert('삭제 에러: ' + (error instanceof Error ? error.message : error));
